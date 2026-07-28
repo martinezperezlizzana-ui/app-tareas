@@ -1,0 +1,78 @@
+.contenedor-tareas {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor-tareas h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.agregar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.agregar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.agregar button {
+  padding: 10px 18px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.agregar button:hover {
+  background: #1565c0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+li span {
+  cursor: pointer;
+  flex: 1;
+}
+
+.completada {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.eliminar {
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.eliminar:hover {
+  background: #b71c1c;
+}
