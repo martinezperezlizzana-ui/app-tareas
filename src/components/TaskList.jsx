@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "./AppTareas.css";
+import "./TaskList.css";
+import Emptystate from "./Emptystate";
 
 const AppTareas = () => {
   const [tareas, setTareas] = useState([]);
 
-  useEffect(() => {
+
+   useEffect(() => {
     cargarTareas();
+
+    // Actualiza la lista si otro componente modifica localStorage
+    window.addEventListener("storage", cargarTareas);
+
+    return () => {
+      window.removeEventListener("storage", cargarTareas);
+    };
   }, []);
 
   const cargarTareas = () => {
@@ -18,32 +27,11 @@ const AppTareas = () => {
       <h2>Lista de Tareas</h2>
 
       {tareas.length === 0 ? (
-        <div className="mensaje-vacio">
-          <p>No existen tareas registradas.</p>
-        </div>
+        <Emptystate/>
       ) : (
         <ul className="lista-tareas">
           {tareas.map((tarea) => (
-            <li
-              key={tarea.id}
-              className={`item-tarea ${
-                tarea.completada ? "completada" : ""
-              }`}
-            >
-              <div className="contenido-tarea">
-                <h3>{tarea.titulo}</h3>
-
-                {tarea.descripcion && (
-                  <p>{tarea.descripcion}</p>
-                )}
-
-                <span className="estado">
-                  {tarea.completada
-                    ? "✔ Completada"
-                    : "⏳ Pendiente"}
-                </span>
-              </div>
-            </li>
+            <TaskItem tarea={tarea}/>
           ))}
         </ul>
       )}
